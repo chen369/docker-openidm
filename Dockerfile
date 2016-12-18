@@ -1,10 +1,10 @@
 FROM tomcat:8-jre8
 MAINTAINER Christoph Dwertmann <christoph.dwertmann@vaultsystems.com.au>
-RUN wget https://github.com/OpenRock/OpenAM/releases/download/13.0.0/OpenAM-13.0.0.zip && \
+#RUN wget https://github.com/OpenRock/OpenAM/releases/download/13.0.0/OpenAM-13.0.0.zip && \
+RUN wget https://github.com/OpenRock/OpenAM/archive/release/14.0.0-M7.zip && \
     unzip -d unpacked *.zip && \
-    rm -rf $CATALINA_HOME/webapps/ROOT && \
-    cp unpacked/openam/OpenAM*.war $CATALINA_HOME/webapps/openam.war && \
-    mv unpacked/openam/OpenAM*.war $CATALINA_HOME/webapps/ROOT.war && \
+    rm -rf $CATALINA_HOME/webapps/ROOT/* && \
+    cp unpacked/openam/OpenAM*.war $CATALINA_HOME/webapps/ROOT.war && \
     rm -rf *.zip unpacked
 ENV CATALINA_OPTS="-Xmx2048m -server"
 CMD perl -0pi.bak -e 's/<!--\n    <Connector port="8443"/<Connector port="8443" maxHttpHeaderSize="102400" keystoreFile="\/opt\/server.keystore" keystorePass="$ENV{'KEYSTORE_PASS'}"/' $CATALINA_HOME/conf/server.xml && \
