@@ -3,6 +3,7 @@ MAINTAINER Christoph Dwertmann <christoph.dwertmann@vaultsystems.com.au>
 RUN wget https://github.com/OpenRock/OpenAM/releases/download/13.0.0/OpenAM-13.0.0.zip && \
     unzip -d unpacked *.zip && \
     rm -rf $CATALINA_HOME/webapps/ROOT && \
+    cp unpacked/openam/OpenAM*.war $CATALINA_HOME/webapps/openam.war && \
     mv unpacked/openam/OpenAM*.war $CATALINA_HOME/webapps/ROOT.war && \
     rm -rf *.zip unpacked
 ENV CATALINA_OPTS="-Xmx2048m -server"
