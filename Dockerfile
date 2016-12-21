@@ -3,7 +3,7 @@ MAINTAINER Christoph Dwertmann <christoph.dwertmann@vaultsystems.com.au>
 RUN wget https://github.com/OpenRock/OpenIDM/archive/master.zip && \
     unzip -d unpacked *.zip && \
     rm -rf $CATALINA_HOME/webapps/ROOT/* && \
-    apt-get update && apt-get install -y default-jdk maven && \
+    apt-get update && apt-get install -y default-jdk openjdk-8-jdk maven && \
     cd unpacked/OpenIDM-master/ && \
     MAVEN_OPTS=-Xmx1024m mvn -T 1C -DskipTests=true clean install 
     
