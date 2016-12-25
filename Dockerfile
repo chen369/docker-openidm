@@ -9,6 +9,7 @@ RUN cd /tmp && \
     rm ./openidm-4.0.0.zip 
     
 EXPOSE 8443
+ENTRYPOINT ["/bin/bash"]
 
 # Start OpenIDM
 #ENTRYPOINT ./opt/openidm/startup.sh
