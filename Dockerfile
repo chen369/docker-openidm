@@ -4,7 +4,4 @@ RUN wget https://github.com/OpenRock/OpenIDM/archive/master.zip && \
     unzip -d unpacked *.zip && \
     rm -rf $CATALINA_HOME/webapps/ROOT/* && \
     apt-get update && apt-get install -y default-jdk openjdk-8-jdk maven && \
-    cd unpacked/OpenIDM-master/ && \
-    MAVEN_OPTS=-Xmx1024m mvn 1C -DskipTests=true clean install 
-    
-ENV CATALINA_OPTS="-Xmx2048m -server"
+    cd unpacked/OpenIDM-master/ && mvn clean install \
