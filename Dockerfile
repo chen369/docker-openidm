@@ -2,7 +2,7 @@ FROM debian:latest
 MAINTAINER Chen Chiu <docker-maintainer@blitzcorp.org>
 
 RUN cd /tmp && \
-    apt-get install -y wget
+    apt-get install -y wget && \
     wget -q https://github.com/OpenRock/OpenIDM/releases/download/4.0.0/openidm-4.0.0.zip && \
     unzip -q openidm-4.0.0.zip  -d /opt && \
     rm ./openidm-4.0.0.zip 
