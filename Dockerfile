@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM debian:latest
 MAINTAINER Chen Chiu <docker-maintainer@blitzcorp.org>
 
 RUN cd /tmp && \
