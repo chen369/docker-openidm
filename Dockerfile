@@ -11,4 +11,4 @@ RUN cd /tmp && \
 EXPOSE 8443
 
 # Start OpenIDM
-ENTRYPOINT ./opt/openidm/startup.sh
+#ENTRYPOINT ./opt/openidm/startup.sh
