@@ -7,7 +7,7 @@ RUN cd /tmp && \
     unzip -q openidm-4.0.0.zip  -d /opt && \
     rm ./openidm-4.0.0.zip 
     
-EXPOSE 8443
+EXPOSE 8080
 
 # Start OpenIDM
 ENTRYPOINT ./opt/openidm/startup.sh
