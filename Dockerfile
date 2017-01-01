@@ -1,6 +1,5 @@
-FROM debian:latest
+FROM java:8-jre
 MAINTAINER Chen Chiu <docker-maintainer@blitzcorp.org>
-
 RUN cd /tmp && \
     apt-get update && apt-get upgrade && \
     apt-get install -y wget unzip && \
@@ -9,7 +8,6 @@ RUN cd /tmp && \
     rm ./openidm-4.0.0.zip 
     
 EXPOSE 8443
-ENTRYPOINT ["/bin/bash"]
 
 # Start OpenIDM
-#ENTRYPOINT ./opt/openidm/startup.sh
+ENTRYPOINT ./opt/openidm/startup.sh
